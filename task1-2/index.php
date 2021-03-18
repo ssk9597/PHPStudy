@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="index.php" method="POST">
+    <form method="POST">
         <input type="text" name="fruit">
         <input type="submit" value="検索">
     </form>
@@ -18,7 +18,7 @@
     $searchWord = $_POST["fruit"];
 
     foreach ($fruits as $fruit) {
-        if ($searchWord == $fruit) {
+        if ($searchWord === $fruit) {
             $isExist = $fruit;
         }
     }
