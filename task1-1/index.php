@@ -15,7 +15,7 @@
     </form>
     <?php
     $answer = $_POST["capital"];
-    if ($answer != "") {
+    if ($answer) {
         if ($answer == "東京") {
             echo "正解";
         } else {
