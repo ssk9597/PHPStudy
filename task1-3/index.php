@@ -1,3 +1,8 @@
+<?php
+$questions = array("問題" => "日本の首都は？");
+$answers = array("回答1" => "大阪", "回答2" => "北海道", "回答3" => "箱根", "回答4" => "東京");
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,18 +13,11 @@
 </head>
 
 <body>
-    <?php
-    $questions = array("問題" => "日本の首都は？");
-    $answers = array("回答1" => "大阪", "回答2" => "北海道", "回答3" => "箱根", "回答4" => "東京");
-
-    foreach ($questions as $key => $value) :
-    ?>
+    <?php foreach ($questions as $key => $value) : ?>
         <h2><?php echo "{$key} {$value}" ?></h2>
-    <?php
-    endforeach;
+    <?php endforeach; ?>
 
-    foreach ($answers as $key => $value) :
-    ?>
+    <?php foreach ($answers as $key => $value) : ?>
         <p><?php echo "{$key} {$value}" ?></p>
     <?php endforeach; ?>
 
