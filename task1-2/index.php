@@ -1,3 +1,27 @@
+<?php
+//条件
+$fruits = array("apple", "orange", "strawberry");
+
+//検索ワード
+$searchWord = $_POST["fruit"];
+
+//条件を満たすかどうか
+foreach ($fruits as $fruit) {
+    if ($searchWord === $fruit) {
+        $isExist = $fruit;
+    }
+}
+
+//条件によってメッセージを分岐
+if ($_POST["search"]) {
+    if ($isExist) {
+        $answer = "{$searchWord}は、配列に含まれています。";
+    } else {
+        $answer = "{$searchWord}は、配列に含まれていません。";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,27 +34,9 @@
 <body>
     <form method="POST">
         <input type="text" name="fruit">
-        <input type="submit" value="検索">
+        <input type="submit" name="search" value="検索">
     </form>
-    <?php
-    $fruits = array("apple", "orange", "strawberry");
-
-    $searchWord = $_POST["fruit"];
-
-    foreach ($fruits as $fruit) {
-        if ($searchWord === $fruit) {
-            $isExist = $fruit;
-        }
-    }
-
-    if ($searchWord) {
-        if ($isExist) {
-            echo "{$searchWord}は、配列に含まれています。";
-        } else {
-            echo "{$searchWord}は、配列に含まれていません。";
-        }
-    }
-    ?>
+    <?php echo $answer; ?>
 </body>
 
 </html>
