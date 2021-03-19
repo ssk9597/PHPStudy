@@ -36,7 +36,9 @@ if ($_POST["search"]) {
         <input type="text" name="fruit">
         <input type="submit" name="search" value="検索">
     </form>
-    <?php echo $answer; ?>
+    <div>
+        <?php echo $answer; ?>
+    </div>
 </body>
 
 </html>
