@@ -1,22 +1,7 @@
 <?php
-//じゃんけんの結果
-$result = "";
-
-//相手のじゃんけんの手
-$array = array("グー", "チョキ", "パー");
-$com = $array[array_rand($array, 1)];
-
-//自分のじゃんけんの手
-$player = $_POST["select"];
-
 //じゃんけん勝敗
-function setResult()
+function setResult($player, $com)
 {
-    //グローバル変数
-    global $result;
-    global $player;
-    global $com;
-
     //じゃんけん
     if ($player === "グー") {
         switch ($com) {
@@ -55,11 +40,20 @@ function setResult()
                 break;
         }
     }
+    return $result;
 };
 
-//関数の実行
+//じゃんけんをクリック
 if ($_POST["submit"]) {
-    setResult();
+    //相手のじゃんけんの手
+    $array = array("グー", "チョキ", "パー");
+    $com = $array[array_rand($array, 1)];
+
+    //自分のじゃんけんの手
+    $player = $_POST["select"];
+
+    //関数の実行
+    setResult($player, $com);
 }
 ?>
 
@@ -85,7 +79,7 @@ if ($_POST["submit"]) {
     </form>
     <div><?php echo "自分：{$player}"; ?></div>
     <div><?php echo "相手：{$com}"; ?></div>
-    <div><?php echo $result; ?></div>
+    <div><?php echo setResult($player, $com); ?></div>
 </body>
 
 </html>
