@@ -9,8 +9,6 @@ $com = $array[array_rand($array, 1)];
 //自分のじゃんけんの手
 $player = $_POST["select"];
 
-if ($player === "グー") {
-}
 //じゃんけん勝敗
 function setResult()
 {
