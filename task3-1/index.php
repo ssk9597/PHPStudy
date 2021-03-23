@@ -33,13 +33,11 @@ $posts_read = $pdo->query("SELECT * FROM posts");
     </form>
 
     <h2>投稿内容一覧</h2>
-    <?php while ($read = $posts_read->fetch(PDO::FETCH_ASSOC)) : ?>
-        <div>
-            <p>No:<?php echo $read["id"] ?></p>
-            <p>名前:<?php echo htmlspecialchars($read["name"], ENT_QUOTES, "UTF-8") ?></p>
-            <p>投稿内容:<?php echo htmlspecialchars($read["content"], ENT_QUOTES, "UTF-8") ?></p>
-        </div>
-    <?php endwhile ?>
+    <?php foreach ($posts_read as $read) : ?>
+        <p>No:<?php echo $read["id"] ?></p>
+        <p>名前:<?php echo htmlspecialchars($read["name"], ENT_QUOTES, "UTF-8") ?></p>
+        <p>投稿内容:<?php echo htmlspecialchars($read["content"], ENT_QUOTES, "UTF-8") ?></p>
+    <?php endforeach ?>
 </body>
 
 </html>
