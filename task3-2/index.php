@@ -4,6 +4,9 @@ require_once "pdo_connect.php";
 
 //postsテーブル読み込み
 $posts_read = $pdo->query("SELECT * FROM posts");
+
+//id初期値
+$counter = 1;
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ $posts_read = $pdo->query("SELECT * FROM posts");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP課題③-1</title>
+    <title>PHP課題③-2</title>
 </head>
 
 <body>
@@ -34,9 +37,14 @@ $posts_read = $pdo->query("SELECT * FROM posts");
 
     <h2>投稿内容一覧</h2>
     <?php foreach ($posts_read as $read) : ?>
-        <p>No:<?php echo $read["id"] ?></p>
-        <p>名前:<?php echo htmlspecialchars($read["name"], ENT_QUOTES, "UTF-8") ?></p>
-        <p>投稿内容:<?php echo htmlspecialchars($read["content"], ENT_QUOTES, "UTF-8") ?></p>
+        <form action="delete.php" method="POST">
+            <p>No:<?php echo $counter ?></p>
+            <p>名前:<?php echo htmlspecialchars($read["name"], ENT_QUOTES, "UTF-8") ?></p>
+            <p>投稿内容:<?php echo htmlspecialchars($read["content"], ENT_QUOTES, "UTF-8") ?></p>
+            <input type="hidden" name="delete_id" value="<?php echo $read["id"] ?>">
+            <input type="submit" name="delete" value="削除">
+        </form>
+        <?php $counter++; ?>
     <?php endforeach ?>
 </body>
 

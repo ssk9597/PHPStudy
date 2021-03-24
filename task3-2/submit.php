@@ -21,13 +21,13 @@ $posts_create->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP課題③-1</title>
+    <title>PHP課題③-2</title>
 </head>
 
 <body>
     <h2>投稿が完了しました。</h2>
     <button>
-        <a href="/task3-1/index.php">投稿一覧へ戻る</a>
+        <a href="/task3-2/index.php">投稿一覧へ戻る</a>
     </button>
 </body>
 
