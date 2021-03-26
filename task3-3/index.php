@@ -15,7 +15,7 @@ $counter = 1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP課題③-2</title>
+    <title>PHP課題③-3</title>
 </head>
 
 <body>
@@ -40,6 +40,10 @@ $counter = 1;
         <p>No:<?php echo $counter ?></p>
         <p>名前:<?php echo htmlspecialchars($read["name"], ENT_QUOTES, "UTF-8") ?></p>
         <p>投稿内容:<?php echo htmlspecialchars($read["content"], ENT_QUOTES, "UTF-8") ?></p>
+        <form action="edit.php" method="GET">
+            <input type="hidden" name="edit_id" value="<?php echo $read["id"] ?>">
+            <input type="submit" name="edit" value="編集">
+        </form>
         <form action="delete.php" method="POST">
             <input type="hidden" name="delete_id" value="<?php echo $read["id"] ?>">
             <input type="submit" name="delete" value="削除">
